@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initVoiceSlider();
     initParallax();
     initVideoBackground();
+    initFAQ();
 });
 
 /**
@@ -359,6 +360,38 @@ function initVideoBackground() {
             }
         }
     });
+}
+
+/**
+ * FAQ Accordion
+ */
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    if (faqItems.length === 0) return;
+
+    faqItems.forEach(function(item) {
+        const question = item.querySelector('.faq-question');
+
+        if (!question) return;
+
+        question.addEventListener('click', function() {
+            // Close all other items
+            faqItems.forEach(function(otherItem) {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+
+    // Open first FAQ item by default
+    if (faqItems[0]) {
+        faqItems[0].classList.add('active');
+    }
 }
 
 /**

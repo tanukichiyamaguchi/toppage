@@ -2025,6 +2025,280 @@ input, textarea, select {
 }
 
 /* =====================================================
+   Recommend Section (こんな方におすすめ)
+   ===================================================== */
+.recommend {
+    background: var(--white);
+}
+
+.recommend-content {
+    max-width: 800px;
+    margin: var(--space-3xl) auto 0;
+}
+
+.recommend-negative {
+    background: var(--gray-50);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+}
+
+.negative-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.negative-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    font-size: var(--text-base);
+    color: var(--gray-600);
+    line-height: 1.8;
+}
+
+.negative-list li i {
+    color: #e74c3c;
+    font-size: var(--text-lg);
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.recommend-arrow {
+    text-align: center;
+    padding: var(--space-lg) 0;
+}
+
+.recommend-arrow i {
+    font-size: var(--text-3xl);
+    color: var(--gold-500);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.recommend-positive {
+    background: linear-gradient(135deg, var(--gold-50) 0%, var(--gold-100) 100%);
+    border: 2px solid var(--gold-400);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+}
+
+.positive-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 500;
+    color: var(--gray-800);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
+}
+
+.positive-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.positive-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    font-size: var(--text-base);
+    color: var(--gray-700);
+    line-height: 1.8;
+}
+
+.positive-list li i {
+    color: var(--gold-500);
+    font-size: var(--text-lg);
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+/* =====================================================
+   FAQ Section
+   ===================================================== */
+.faq {
+    background: var(--cream);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: var(--space-3xl) auto 0;
+}
+
+.faq-item {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-100);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xl);
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--gray-800);
+    text-align: left;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.faq-question:hover {
+    background: var(--gray-50);
+}
+
+.faq-question i {
+    color: var(--gold-500);
+    font-size: var(--text-sm);
+    transition: var(--transition-base);
+    flex-shrink: 0;
+    margin-left: var(--space-md);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer p {
+    padding: 0 var(--space-xl) var(--space-xl);
+    font-size: var(--text-base);
+    color: var(--gray-600);
+    line-height: 2;
+}
+
+.faq-answer strong {
+    color: var(--gray-800);
+}
+
+/* =====================================================
+   CTA Reassurance
+   ===================================================== */
+.cta-reassurance {
+    margin-top: var(--space-xl);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+}
+
+.cta-reassurance p {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    color: var(--gray-400);
+}
+
+.cta-reassurance i {
+    color: var(--gold-400);
+}
+
+/* =====================================================
+   Features Grid 5 Items
+   ===================================================== */
+.features-grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.features-grid-5 .feature-card:nth-child(4),
+.features-grid-5 .feature-card:nth-child(5) {
+    grid-column: span 1;
+}
+
+@media screen and (max-width: 1200px) {
+    .features-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-grid-5 .feature-card:nth-child(5) {
+        grid-column: span 2;
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .features-grid-5 {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid-5 .feature-card:nth-child(5) {
+        grid-column: span 1;
+        max-width: 100%;
+    }
+}
+
+/* =====================================================
+   Menu Popular Badge & Price Time
+   ===================================================== */
+.menu-card.popular-no1 {
+    border: 3px solid var(--gold-400);
+    box-shadow: var(--shadow-gold);
+    position: relative;
+}
+
+.menu-card.popular-no1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gold-gradient);
+}
+
+.menu-badge.popular-badge {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    font-weight: 600;
+}
+
+.price-time {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--gray-500);
+    margin-top: var(--space-xs);
+}
+
+.menu-description-featured {
+    font-size: var(--text-base);
+    line-height: 2;
+}
+
+.menu-description-featured strong {
+    color: var(--gold-600);
+}
+
+/* =====================================================
    Print Styles
    ===================================================== */
 @media print {
